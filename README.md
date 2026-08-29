@@ -1,4 +1,4 @@
-# Phishing Awareness Project
+# Phishing Analysis
 
 ## About this project
 
