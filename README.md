@@ -4,53 +4,53 @@
 
 Phishing is a type of social engineering attack where someone pretends to be a trusted person or organization to trick a user into clicking a link, opening an attachment, sending money, or sharing private information.
 
-I made this project to establish the importance recognizing phishing emails and explaining why they can be convincing. This focus is about understanding how phishing works, noticing common warning signs, and knowing how to respond safely.
+I made this project to show the importance of recognizing phishing emails and explain why they can be convincing. I used two suspicious emails that I actually received, identified the warning signs in each one, and explained how I would respond safely.
 
-## Project goals
+## How phishing connects to social engineering
 
-- Explain phishing in simple terms
-- Show how phishing connects to social engineering
-- Identify common signs of a suspicious email
-- Review fictional email examples
-- Explain what someone should do after receiving a suspicious message
+Phishing is a form of social engineering because it targets a person's emotions and decisions. One email may use fear or urgency, while another may use curiosity or the promise of money. Both are trying to make the reader act before thinking.
 
-## What I did
+## Real emails I reviewed
 
-I reviewed three fictional email scenarios. For each one, I looked at:
+### Example 1: Fake cloud-storage warning
 
-- Who the message claimed to be from
-- Whether the sender address looked normal
-- The type of language being used
-- What the sender wanted the reader to do
-- Whether the message included an unexpected link or attachment
-- The safest way to respond
+![Suspicious cloud-storage email](images/01-storage-alert-phishing-email.png)
+
+This email says my account was blocked and my photos would be deleted that night. The message uses fear and urgency to pressure the reader. The random sender address, unrelated sending domain, vague “Cloud Storage” name, and Gmail spam warning make it even more suspicious.
+
+### Example 2: Fake Venmo offer
+
+![Suspicious Venmo offer email](images/02-venmo-offer-phishing-email.png)
+
+This message promises an unspecified Venmo offer but does not use my name, display an amount, or clearly identify who sent the money. It then asks me to continue to another page and answer questions. This uses curiosity and the promise of money to encourage a click.
+
+Read the [full breakdown of both emails](real-phishing-examples.md).
+
+## What I checked
+
+- The sender and the organization the email claimed to represent
+- Whether the greeting was personal or vague
+- Whether the message used fear, urgency, or a reward
+- What the message wanted me to click or provide
+- Whether the request made sense
+- How I could verify the message without using its buttons
 
 ## Repository files
 
 | File | Description |
 | --- | --- |
-| [phishing-awareness-guide.md](phishing-awareness-guide.md) | Explains phishing, social engineering, warning signs, and safe response steps |
-| [practice-email-examples.md](practice-email-examples.md) | Reviews three fictional email examples and explains the decision for each one |
-| [reflection.md](reflection.md) | Summarizes what I learned from the project |
-
-## Quick phishing checklist
-
-Before trusting an email, I would ask:
-
-1. Was I expecting this message?
-2. Does the full sender address match who the person claims to be?
-3. Is the message trying to scare or rush me?
-4. Is it asking for a password, payment, code, or personal information?
-5. Is there an unexpected link or attachment?
-6. Can I confirm the request another way?
+| [phishing-awareness-guide.md](phishing-awareness-guide.md) | Explains phishing, social engineering, common warning signs, and safe response steps |
+| [real-phishing-examples.md](real-phishing-examples.md) | Breaks down two suspicious emails I actually received |
+| [reflection.md](reflection.md) | Explains what I learned from the project |
+| `images/` | Contains the two original email screenshots used as evidence |
 
 ## Main takeaway
 
-The biggest thing I learned is that phishing works by targeting people, not only computers. A message can look professional and still be dangerous. Slowing down, checking the sender, and verifying unusual requests through an official website or known contact can prevent a rushed mistake.
+Phishing emails do not all use the same trick. One message may threaten that something will be taken away, while another promises something valuable. The safest habit is to slow down, inspect the request, and verify it through an official app, website, or known contact instead of using the email.
 
-## Safety note
+## Safety and privacy
 
-All email examples in this project are fictional and were written only for awareness training. They do not contain working links, real login pages, or real personal information.
+The screenshots do not show my personal email address or account information. I did not open the links, visit the pages, reply to the senders, or provide any information.
 
 ## Reference
 
