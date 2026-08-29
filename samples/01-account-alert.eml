@@ -1,0 +1,23 @@
+From: CloudDesk Security <security@clouddesk.example>
+Reply-To: CloudDesk Help <help@clouddesk-support.test>
+Return-Path: <bounce@mailer.invalid>
+To: Student User <student@example.net>
+Date: Sat, 29 Aug 2026 09:14:00 -0400
+Message-ID: <training-001@mailer.invalid>
+Subject: URGENT: Your account will be suspended today
+Authentication-Results: mx.example.net; spf=fail smtp.mailfrom=mailer.invalid; dkim=fail header.d=clouddesk.example; dmarc=fail header.from=clouddesk.example
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hello,
+
+We detected unusual activity. Your account will be suspended today unless you
+review the activity immediately.
+
+Review activity: https://clouddesk-support.test/verify
+
+CloudDesk Security Team
+
+TRAINING SAMPLE: This message is fictional. The link uses a reserved domain and
+does not lead to a real website.
+

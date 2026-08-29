@@ -1,0 +1,9 @@
+sample_id,indicator_type,indicator_value,confidence,notes
+01,reply_to_domain,clouddesk-support[.]test,high,Reserved training domain that differs from the visible sender
+01,return_path_domain,mailer[.]invalid,high,Reserved training domain associated with authentication failures
+01,url,hxxps://clouddesk-support[.]test/verify,high,Reserved training URL that differs from the visible sender
+01,subject,URGENT: Your account will be suspended today,medium,Pressure language used in the simulated message
+02,reply_to_domain,northwind-payments[.]invalid,medium,Reserved training domain that differs from the visible sender
+02,url,hxxps://northwind-payments[.]invalid/invoice/8841,medium,Reserved training payment URL
+02,attachment,Invoice_8841[.]html,medium,Harmless training attachment with a potentially risky extension
+

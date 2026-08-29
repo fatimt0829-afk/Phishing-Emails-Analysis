@@ -1,0 +1,76 @@
+{
+  "source_file": "01-account-alert.eml",
+  "analysis_time_utc": "2026-08-29T01:55:39+00:00",
+  "summary": {
+    "subject": "URGENT: Your account will be suspended today",
+    "from": "CloudDesk Security <security@clouddesk.example>",
+    "reply_to": "CloudDesk Help <help@clouddesk-support.test>",
+    "return_path": "<bounce@mailer.invalid>",
+    "from_domain": "clouddesk.example",
+    "reply_to_domain": "clouddesk-support.test",
+    "return_path_domain": "mailer.invalid",
+    "authentication": {
+      "spf": "fail",
+      "dkim": "fail",
+      "dmarc": "fail"
+    },
+    "url_domains": [
+      "clouddesk-support.test"
+    ],
+    "defanged_urls": [
+      "hxxps://clouddesk-support[.]test/verify"
+    ],
+    "attachments": []
+  },
+  "risk_score": 100,
+  "risk_level": "high",
+  "findings": [
+    {
+      "rule_id": "HDR-001",
+      "category": "Reply-To mismatch",
+      "score": 20,
+      "evidence": "From domain clouddesk.example differs from Reply-To domain clouddesk-support.test."
+    },
+    {
+      "rule_id": "HDR-002",
+      "category": "Return-Path mismatch",
+      "score": 15,
+      "evidence": "From domain clouddesk.example differs from Return-Path domain mailer.invalid."
+    },
+    {
+      "rule_id": "AUTH-SPF",
+      "category": "SPF authentication issue",
+      "score": 20,
+      "evidence": "Authentication-Results reported spf=fail."
+    },
+    {
+      "rule_id": "AUTH-DKIM",
+      "category": "DKIM authentication issue",
+      "score": 15,
+      "evidence": "Authentication-Results reported dkim=fail."
+    },
+    {
+      "rule_id": "AUTH-DMARC",
+      "category": "DMARC authentication issue",
+      "score": 25,
+      "evidence": "Authentication-Results reported dmarc=fail."
+    },
+    {
+      "rule_id": "URL-001",
+      "category": "Unrelated link domain",
+      "score": 20,
+      "evidence": "Message links to domain(s) not matching the visible sender: clouddesk-support.test."
+    },
+    {
+      "rule_id": "TXT-001",
+      "category": "Urgent or pressuring language",
+      "score": 10,
+      "evidence": "Matched term(s): immediately, suspended, today, urgent."
+    }
+  ],
+  "limitations": [
+    "No DNS or reputation lookups were performed.",
+    "Attachments were identified by filename and were not executed.",
+    "The score is a triage aid and requires analyst review."
+  ]
+}

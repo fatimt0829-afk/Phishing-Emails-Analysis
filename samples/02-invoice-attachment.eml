@@ -1,0 +1,32 @@
+From: Northwind Billing <billing@northwind.example>
+Reply-To: Northwind Accounts <accounts@northwind-payments.invalid>
+Return-Path: <billing@northwind.example>
+To: Student User <student@example.net>
+Date: Sat, 29 Aug 2026 10:03:00 -0400
+Message-ID: <training-002@northwind.example>
+Subject: Action required: Overdue invoice 8841
+Authentication-Results: mx.example.net; spf=pass smtp.mailfrom=northwind.example; dkim=pass header.d=northwind.example; dmarc=pass header.from=northwind.example
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="TRAINING-BOUNDARY-8841"
+
+--TRAINING-BOUNDARY-8841
+Content-Type: text/plain; charset="utf-8"
+
+Hello,
+
+Invoice 8841 is overdue. Please review it today and confirm payment through our
+billing page: https://northwind-payments.invalid/invoice/8841
+
+Northwind Billing
+
+TRAINING SAMPLE: All domains are reserved and nonfunctional.
+
+--TRAINING-BOUNDARY-8841
+Content-Type: text/html; charset="utf-8"; name="Invoice_8841.html"
+Content-Disposition: attachment; filename="Invoice_8841.html"
+Content-Transfer-Encoding: 7bit
+
+<html><body><p>Training attachment only. No form, script, or active content is included.</p></body></html>
+
+--TRAINING-BOUNDARY-8841--
+
