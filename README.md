@@ -1,133 +1,57 @@
-# Phishing Email Analysis Lab
+# Phishing Awareness Project
 
-**Defensive email analysis | Python | SPF, DKIM, DMARC | IOC extraction**
+## About this project
 
-This project documents a defensive phishing-analysis lab built around three simulated email messages: a credential-themed account alert, an invoice lure with a harmless HTML attachment, and a legitimate control message. I reviewed the headers, sender alignment, authentication results, URLs, language, and attachments, then used a small Python tool to apply the same checks consistently.
+Phishing is a type of social engineering attack where someone pretends to be a trusted person or organization to trick a user into clicking a link, opening an attachment, sending money, or sharing private information.
 
-> **Safety note:** Every message is fictional. All domains use the reserved `.example`, `.test`, or `.invalid` namespaces, so there are no live phishing links, real credentials, or real organizations in this repository. The lab does not send email or collect information.
+I made this project to practice recognizing phishing emails and explaining why they can be convincing. The focus is not on advanced tools or coding. It is about understanding how phishing works, noticing common warning signs, and knowing how to respond safely.
 
-## Project results
+## Project goals
 
-| Sample | Classification | Score | Main indicators |
-| --- | --- | ---: | --- |
-| Account alert | High risk | 100/100 | SPF, DKIM, and DMARC failures; sender mismatches; unrelated link; urgency |
-| Invoice attachment | High risk | 70/100 | Reply-To mismatch; unrelated link; urgent payment language; HTML attachment |
-| Security notice control | Low risk | 0/100 | Aligned sender domains, authentication passes, and no suspicious attachment |
+- Explain phishing in simple terms
+- Show how phishing connects to social engineering
+- Identify common signs of a suspicious email
+- Review fictional email examples
+- Explain what someone should do after receiving a suspicious message
 
-## What I analyzed
+## What I did
 
-- `From`, `Reply-To`, and `Return-Path` domain alignment
-- SPF, DKIM, and DMARC results in the `Authentication-Results` header
-- URL domains compared with the visible sender domain
-- Urgent or pressuring language
-- Potentially risky attachment extensions
-- Indicators of compromise (IOCs) that an analyst could document or block
+I reviewed three fictional email scenarios. For each one, I looked at:
 
-## Repository structure
+- Who the message claimed to be from
+- Whether the sender address looked normal
+- The type of language being used
+- What the sender wanted the reader to do
+- Whether the message included an unexpected link or attachment
+- The safest way to respond
 
-```text
-phishing-email-analysis/
-|-- README.md
-|-- findings.md
-|-- src/
-|   |-- analyze_email.py
-|-- samples/
-|   |-- 01-account-alert.eml
-|   |-- 02-invoice-attachment.eml
-|   |-- 03-legitimate-control.eml
-|-- analysis/
-|   |-- 01-account-alert.md
-|   |-- 02-invoice-attachment.md
-|   |-- 03-legitimate-control.md
-|-- results/
-|   |-- 01-account-alert.json
-|   |-- 02-invoice-attachment.json
-|   |-- 03-legitimate-control.json
-|-- indicators/
-|   |-- iocs.csv
-|-- docs/
-|   |-- analyst-checklist.md
-|   |-- phishing-analysis-report.pdf
-|-- tests/
-|   |-- test_analyze_email.py
-|-- tools/
-|   |-- generate_report.py
-|-- requirements-report.txt
-```
+## Repository files
 
-## Run the lab
+| File | Description |
+| --- | --- |
+| [phishing-awareness-guide.md](phishing-awareness-guide.md) | Explains phishing, social engineering, warning signs, and safe response steps |
+| [practice-email-examples.md](practice-email-examples.md) | Reviews three fictional email examples and explains the decision for each one |
+| [reflection.md](reflection.md) | Summarizes what I learned from the project |
 
-The analyzer uses only Python's standard library.
+## Quick phishing checklist
 
-```bash
-python src/analyze_email.py samples/01-account-alert.eml
-```
+Before trusting an email, I would ask:
 
-Save a structured JSON result:
+1. Was I expecting this message?
+2. Does the full sender address match who the person claims to be?
+3. Is the message trying to scare or rush me?
+4. Is it asking for a password, payment, code, or personal information?
+5. Is there an unexpected link or attachment?
+6. Can I confirm the request another way?
 
-```bash
-python src/analyze_email.py samples/01-account-alert.eml \
-  --json-out results/01-account-alert.json
-```
+## Main takeaway
 
-Analyze all three samples:
+The biggest thing I learned is that phishing works by targeting people, not only computers. A message can look professional and still be dangerous. Slowing down, checking the sender, and verifying unusual requests through an official website or known contact can prevent a rushed mistake.
 
-```bash
-python src/analyze_email.py samples/01-account-alert.eml --json-out results/01-account-alert.json
-python src/analyze_email.py samples/02-invoice-attachment.eml --json-out results/02-invoice-attachment.json
-python src/analyze_email.py samples/03-legitimate-control.eml --json-out results/03-legitimate-control.json
-```
+## Safety note
 
-Run the automated tests:
+All email examples in this project are fictional and were written only for awareness training. They do not contain working links, real login pages, or real personal information.
 
-```bash
-python -m unittest discover -s tests -v
-```
-
-The risk score is a triage aid, not a final verdict. A real security analyst would combine these signals with mail-gateway data, DNS records, reputation sources, organizational context, and safe attachment analysis.
-
-## Findings
-
-### 1. Account alert - High
-
-The account-alert sample had the strongest combination of suspicious evidence. The apparent sender, reply address, and return path used different domains; SPF, DKIM, and DMARC failed; and the message linked to a domain unrelated to the visible sender. The language also created time pressure.
-
-**Recommended response:** quarantine the message, block the listed indicators where appropriate, search the environment for similar messages, and notify affected users through an approved channel.
-
-### 2. Invoice attachment - High
-
-The invoice sample passed the simulated authentication checks, showing that authentication alone cannot prove that a message is safe. The different Reply-To domain, unrelated payment link, urgent language, and HTML attachment still justified escalation.
-
-**Recommended response:** do not open the attachment in a normal user environment. Validate the invoice through a known contact method and inspect the attachment only with approved security tooling.
-
-### 3. Legitimate control - Low
-
-The control message used aligned sender domains, passed the simulated authentication checks, linked back to the sender's domain, and did not include a suspicious attachment or pressure language. It provides a baseline for comparison.
-
-Detailed reasoning is available in [findings.md](findings.md) and the [PDF analysis report](docs/phishing-analysis-report.pdf).
-
-## Skills demonstrated
-
-- Email-header analysis
-- SPF, DKIM, and DMARC interpretation
-- Sender-domain and Reply-To comparison
-- URL and attachment triage
-- IOC extraction and defanging
-- Python automation and unit testing
-- Risk communication and incident-response recommendations
-
-## Limitations
-
-- The messages are simulated and contain no real infrastructure.
-- The tool reads existing authentication results; it does not perform DNS validation.
-- The score is intentionally simple and should not replace a secure email gateway or analyst judgment.
-- Attachments are identified by filename only and are never executed.
-- No external links are opened and no network requests are made.
-
-## References
+## Reference
 
 - [CISA: Recognize and Report Phishing](https://www.cisa.gov/secure-our-world/recognize-and-report-phishing)
-- [IETF RFC 7208: Sender Policy Framework](https://datatracker.ietf.org/doc/html/rfc7208)
-- [IETF RFC 6376: DKIM Signatures](https://datatracker.ietf.org/doc/html/rfc6376)
-- [IETF RFC 9989: DMARC](https://datatracker.ietf.org/doc/html/rfc9989)
-- [IETF RFC 8601: Authentication-Results Header](https://datatracker.ietf.org/doc/html/rfc8601)
