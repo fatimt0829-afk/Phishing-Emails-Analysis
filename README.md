@@ -4,7 +4,7 @@
 
 Phishing is a type of social engineering attack where someone pretends to be a trusted person or organization to trick a user into clicking a link, opening an attachment, sending money, or sharing private information.
 
-I made this project to practice recognizing phishing emails and explaining why they can be convincing. The focus is not on advanced tools or coding. It is about understanding how phishing works, noticing common warning signs, and knowing how to respond safely.
+I made this project to establish the importance recognizing phishing emails and explaining why they can be convincing. This focus is about understanding how phishing works, noticing common warning signs, and knowing how to respond safely.
 
 ## Project goals
 
